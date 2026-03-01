@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "OnlineBookshop\\Business\\AuthorBusiness.cs",
               "ToolTip": "C:\\Users\\ggrud\\source\\repos\\OnlineBookshop\\OnlineBookshop\\Business\\AuthorBusiness.cs",
               "RelativeToolTip": "OnlineBookshop\\Business\\AuthorBusiness.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwDwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-01T09:28:58.359Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "OnlineBookshop\\Data\\Models\\OnlineBookshopContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-01T09:15:42.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-01T09:15:42.791Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "OnlineBookshop\\Program.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAiwAwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T09:03:19.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-28T09:03:19.321Z"
             }
           ]
         }
