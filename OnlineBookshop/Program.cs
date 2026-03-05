@@ -3,6 +3,7 @@
 using Microsoft.Data.SqlClient;
 using OnlineBookshop.Business;
 using OnlineBookshop.Data.Models;
+using OnlineBookshop.Presentation;
 
 namespace OnlineBookshop
 {
@@ -10,6 +11,7 @@ namespace OnlineBookshop
     {
         static void Main(string[] args)
         {
+            Display display = new Display();
             SqlConnection dbCon = new SqlConnection(
                 "Server=(localdb)\\MSSQLLocalDB; " +
                 "Database=online_bookshop; " +
@@ -20,7 +22,7 @@ namespace OnlineBookshop
                 AuthorBusiness ab = new AuthorBusiness();
                 foreach (var author in ab.GetAll())
                 {
-                    Console.WriteLine($"{author.AuthorId} {author.FirstName + " "+author.LastName} {author.BirthYear}");
+                    Console.WriteLine($"{author.AuthorId} {author.FirstName + " " + author.LastName} {author.BirthYear}");
                 }
             }
             dbCon.Close();
