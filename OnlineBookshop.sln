@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36915.13 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBookshop", "OnlineBookshop\OnlineBookshop.csproj", "{836D7339-23BF-4261-B06C-AEEA1DF7E817}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_Test_OnlineBookshop", "NUnit_Test_OnlineBookshop\NUnit_Test_OnlineBookshop.csproj", "{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{836D7339-23BF-4261-B06C-AEEA1DF7E817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{836D7339-23BF-4261-B06C-AEEA1DF7E817}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{836D7339-23BF-4261-B06C-AEEA1DF7E817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
