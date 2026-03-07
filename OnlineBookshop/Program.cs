@@ -19,11 +19,7 @@ namespace OnlineBookshop
             dbCon.Open();
             using (dbCon)
             {
-                AuthorBusiness ab = new AuthorBusiness();
-                foreach (var author in ab.GetAll())
-                {
-                    Console.WriteLine($"{author.AuthorId} {author.FirstName + " " + author.LastName} {author.BirthYear}");
-                }
+                
             }
             dbCon.Close();
 
