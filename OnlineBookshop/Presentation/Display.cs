@@ -44,13 +44,11 @@ namespace OnlineBookshop.Presentation
 
         private void Input()
         {
-            while(true)
+            bool is_running = true;
+            while(is_running)
             {
                 ShowMenu();
                 int operation = int.Parse(Console.ReadLine());
-
-                if (operation == 5)
-                    break;
 
                 switch (operation)
                 {
@@ -74,7 +72,8 @@ namespace OnlineBookshop.Presentation
                             new OrderDisplay();
                             break;
                         }
-                    default:
+                    case 5:
+                        is_running = false;
                         break;
                 }
             }
