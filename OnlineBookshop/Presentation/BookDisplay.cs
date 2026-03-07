@@ -13,7 +13,7 @@ namespace OnlineBookshop.Presentation
     {
 
 
-        int closeOperationId = 6;
+        private int closeOperationId = 6;
         private BookBusiness bookBusiness = new BookBusiness();
 
         public BookDisplay()
@@ -40,6 +40,7 @@ namespace OnlineBookshop.Presentation
             do
             {
                 ShowMenu();
+                Console.WriteLine("Enter operation ID: ");
                 operation = int.Parse(Console.ReadLine());
                 switch (operation)
                 {
@@ -71,9 +72,9 @@ namespace OnlineBookshop.Presentation
             Console.WriteLine(new string('=', 50));
 
             var book = bookBusiness.GetAll();
-            foreach (var intem in book)
+            foreach (var item in book)
             {
-                Console.WriteLine($"ID: {intem.BookId} | Name: {intem.BookName} | Genre: {intem.Genre} | Price: {intem.Price} | Release Year: {intem.ReleaseYear}");
+                Console.WriteLine($"ID: {item.BookId} | Name: {item.BookName} | Genre: {item.Genre} | Price: {item.Price} | Release Year: {item.ReleaseYear}");
             }
         }
         private void Delete()
@@ -125,13 +126,13 @@ namespace OnlineBookshop.Presentation
         {
             Book book = new Book();
             Console.WriteLine("Enter name: ");
-            string name = Console.ReadLine();
+            book.BookName = Console.ReadLine();
             Console.WriteLine("Enter genre: ");
-            string genre = Console.ReadLine();
+            book.Genre = Console.ReadLine();
             Console.WriteLine("Enter price: ");
-            decimal price = decimal.Parse(Console.ReadLine());
+            book.Price = decimal.Parse(Console.ReadLine());
             Console.WriteLine("Enter release year: ");
-            int releaseYear = int.Parse(Console.ReadLine());
+            book.ReleaseYear = int.Parse(Console.ReadLine());
             bookBusiness.Add(book);
             Console.WriteLine("Done.");
         }

@@ -21,7 +21,10 @@ namespace OnlineBookshop.Business
     
         public Book Get(int id)
         {
-            return bookContext.Books.Find(id);
+            using (bookContext = new OnlineBookshopContext())
+            {
+                return bookContext.Books.Find(id);
+            }
         }
     
         public void Add(Book book)
