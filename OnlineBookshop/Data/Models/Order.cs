@@ -5,7 +5,20 @@ namespace OnlineBookshop.Data.Models;
 
 public partial class Order
 {
-    public int OrderId { get; set; }
+    private int order_id;
+    public int OrderId 
+    { 
+        get => order_id;
+
+        set
+        {
+            if (value <= 0)
+            {
+                throw new ArgumentException("OrderId must be a positive nubmer.");
+            }
+            order_id = value;
+        }
+    }
 
     public int? CustomerId { get; set; }
 
