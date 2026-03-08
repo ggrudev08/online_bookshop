@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Presentation
 {
-    internal class CustomerDisplay
+    public class CustomerDisplay
     {
 
         int closeOperationId = 6;
@@ -124,7 +124,7 @@ namespace OnlineBookshop.Presentation
             var customer = customerBusiness.GetAll();
             foreach (var item in customer)
             {
-                Console.WriteLine($"ID: {item.CustomerId} | Name: {item.FirstName} {" "} {item.LastName}");
+                Console.WriteLine($"ID: {item.CustomerId} | Name: {item.FirstName} {item.LastName}");
             }
         }
 
