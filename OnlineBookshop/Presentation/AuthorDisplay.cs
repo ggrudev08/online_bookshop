@@ -91,8 +91,7 @@ namespace OnlineBookshop.Presentation
                 Console.WriteLine(new string('=', 50));
 
                 Console.WriteLine($"ID: {author.AuthorId}");
-                Console.WriteLine($"First name: {author.FirstName}");
-                Console.WriteLine($"Last name: {author.LastName}");
+                Console.WriteLine($"Name: {author.FirstName} {author.LastName}");
                 Console.WriteLine($"Birth year: {author.BirthYear}");
 
                 Console.WriteLine(new string('=', 50));
@@ -143,7 +142,7 @@ namespace OnlineBookshop.Presentation
 
             foreach (var item in authors)
             {
-                Console.WriteLine($"ID: {item.AuthorId} | First Name: {item.FirstName} | Last Name: {item.LastName} | Birth Year: {item.BirthYear}");
+                Console.WriteLine($"ID: {item.AuthorId} | Name: {item.FirstName} {item.LastName} | Birth Year: {item.BirthYear}");
             }
 
         }

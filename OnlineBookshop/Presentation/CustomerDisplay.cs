@@ -38,6 +38,7 @@ namespace OnlineBookshop.Presentation
             do
             {
                 ShowMenu();
+                Console.WriteLine("Enter operation ID: ");
                 operation = int.Parse(Console.ReadLine());
                 switch (operation)
                 {

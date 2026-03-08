@@ -23,7 +23,10 @@ namespace OnlineBookshop.Business
         {
             using (authorContext = new OnlineBookshopContext())
             {
-                return authorContext.Authors.Find(id);
+                var item = authorContext.Authors.Find(id);
+                if (item == null)
+                    throw new ArgumentException("Author ID not found!");
+                return item;
             }
 
         }
@@ -42,11 +45,12 @@ namespace OnlineBookshop.Business
             using (authorContext = new OnlineBookshopContext())
             {
                 var item = authorContext.Authors.Find(author.AuthorId);
-                if (item != null)
-                {
-                    authorContext.Entry(item).CurrentValues.SetValues(author);
-                    authorContext.SaveChanges();
-                }
+                if (item == null)
+                    throw new ArgumentException("Author ID not found!");
+
+                authorContext.Entry(item).CurrentValues.SetValues(author);
+                authorContext.SaveChanges();
+                
             }
         }
 
@@ -55,11 +59,12 @@ namespace OnlineBookshop.Business
             using (authorContext = new OnlineBookshopContext())
             {
                 var author = authorContext.Authors.Find(id);
-                if (author != null)
-                {
-                    authorContext.Authors.Remove(author);
-                    authorContext.SaveChanges();
-                }
+
+                if (author == null)
+                    throw new ArgumentException("Author ID not found!");
+
+                authorContext.Authors.Remove(author);
+                authorContext.SaveChanges();
             }
         }
     }
