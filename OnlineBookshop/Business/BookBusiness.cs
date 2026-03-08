@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Business
 {
-    class BookBusiness
+    public class BookBusiness
     {
         private OnlineBookshopContext bookContext;
 
@@ -21,16 +21,12 @@ namespace OnlineBookshop.Business
     
         public Book Get(int id)
         {
-<<<<<<< HEAD
-            var item = bookContext.Books.Find(id);
-            if (item == null) throw new ArgumentException("Book id is null");
-            else return item;
-=======
             using (bookContext = new OnlineBookshopContext())
             {
-                return bookContext.Books.Find(id);
+                var item = bookContext.Books.Find(id);
+                if (item == null) throw new ArgumentException("Book id is null");
+                return item;
             }
->>>>>>> 56e984c9f5b1e51b9dac347c4591385bb4d4f233
         }
     
         public void Add(Book book)

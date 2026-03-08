@@ -35,7 +35,7 @@ public partial class OnlineBookshopContext : DbContext
 
             entity.ToTable("authors");
 
-            entity.Property(e => e.AuthorId).HasColumnName("author_id");
+            entity.Property(e => e.AuthorId).HasColumnName("author_id").ValueGeneratedOnAdd();
             entity.Property(e => e.BirthYear).HasColumnName("birth_year");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
@@ -53,7 +53,7 @@ public partial class OnlineBookshopContext : DbContext
 
             entity.ToTable("books");
 
-            entity.Property(e => e.BookId).HasColumnName("book_id");
+            entity.Property(e => e.BookId).HasColumnName("book_id").ValueGeneratedOnAdd();
             entity.Property(e => e.BookName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -93,7 +93,7 @@ public partial class OnlineBookshopContext : DbContext
 
             entity.ToTable("customers");
 
-            entity.Property(e => e.CustomerId).HasColumnName("customer_id");
+            entity.Property(e => e.CustomerId).HasColumnName("customer_id").ValueGeneratedOnAdd();
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -110,7 +110,7 @@ public partial class OnlineBookshopContext : DbContext
 
             entity.ToTable("orders");
 
-            entity.Property(e => e.OrderId).HasColumnName("order_id");
+            entity.Property(e => e.OrderId).HasColumnName("order_id").ValueGeneratedOnAdd();
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)

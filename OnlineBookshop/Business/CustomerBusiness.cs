@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Business
 {
-    internal class CustomerBusiness
+    public class CustomerBusiness
     {
         private OnlineBookshopContext customerContex;
         public List<Customer> GetAll()

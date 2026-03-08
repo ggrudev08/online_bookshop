@@ -18,7 +18,7 @@ namespace OnlineBookshop.Presentation
             Console.WriteLine("1. Author");
             Console.WriteLine("2. Book");
             Console.WriteLine("3. Customer");
-            Console.WriteLine("4. Oreder");
+            Console.WriteLine("4. Order");
             Console.WriteLine("5. Exit");
         }
 

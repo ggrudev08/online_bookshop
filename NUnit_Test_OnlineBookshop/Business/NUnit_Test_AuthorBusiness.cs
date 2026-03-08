@@ -49,6 +49,43 @@ namespace NUnit_Test_OnlineBookshop.Business
             Author author = _authorBusiness.Get(1);
             Assert.DoesNotThrow(() => _authorBusiness.Update(author));
         }
+
+        [Test]
+        public void TestAuthorBusinessGetAllReturnsListOfAuthors()
+        {
+            var authors = _authorBusiness.GetAll();
+            Assert.That(authors, Is.Not.Null);
+            Assert.That(authors, Is.InstanceOf<List<Author>>());
+        }
+
+        [Test]
+        public void TestAuthorBusinessAddDoesNotThrowException()
+        {
+            var author = new Author
+            {
+                FirstName = "Test",
+                LastName = "Author",
+                BirthYear = 1980
+            };
+            Assert.DoesNotThrow(() => _authorBusiness.Add(author));
+
+            // Cleanup: Remove the added author
+            _authorBusiness.Delete(author.AuthorId);
+        }
+
+        [Test]
+        public void TestAuthorBusinessDeleteDoesNotThrowExceptionIfIdIsFound()
+        {
+            var author = new Author
+            {
+                FirstName = "Delete",
+                LastName = "Test",
+                BirthYear = 1980
+            };
+            _authorBusiness.Add(author);
+            Assert.DoesNotThrow(() => _authorBusiness.Delete(author.AuthorId));
+        }
+
         [TearDown]
         public void Cleanup()
         {

@@ -7,7 +7,7 @@ using OnlineBookshop.Data.Models;
 
 namespace OnlineBookshop.Business
 {
-    internal class OrderBusiness
+    public class OrderBusiness
     {
         private OnlineBookshopContext orderContext;
 

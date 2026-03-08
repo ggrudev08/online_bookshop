@@ -23,6 +23,42 @@ namespace NUnit_Test_OnlineBookshop.Models
         {
             Assert.DoesNotThrow(() => _customer.CustomerId = 1);
         }
+
+        [Test]
+        public void TestCustomerIdSetAndGetWorkCorrectly()
+        {
+            _customer.CustomerId = 5;
+            Assert.That(_customer.CustomerId, Is.EqualTo(5));
+        }
+
+        [Test]
+        public void TestCustomerFirstNamePropertyCanBeSet()
+        {
+            _customer.FirstName = "John";
+            Assert.That(_customer.FirstName, Is.EqualTo("John"));
+        }
+
+        [Test]
+        public void TestCustomerLastNamePropertyCanBeSet()
+        {
+            _customer.LastName = "Doe";
+            Assert.That(_customer.LastName, Is.EqualTo("Doe"));
+        }
+
+        [Test]
+        public void TestCustomerOrdersCollectionIsInitialized()
+        {
+            Assert.That(_customer.Orders, Is.Not.Null);
+            Assert.That(_customer.Orders, Is.InstanceOf<ICollection<Order>>());
+        }
+
+        [Test]
+        public void TestCustomerIdCannotBeZero()
+        {
+            Assert.Throws<ArgumentException>(() => _customer.CustomerId = 0);
+        }
+
+        [Test]
         public void TestCustomer()
         {
             Assert.Pass();

@@ -55,6 +55,73 @@ namespace NUnit_Test_OnlineBookshop.Models
             Assert.DoesNotThrow(() => _book.ReleaseYear = 2022);
         }
 
+        [Test]
+        public void TestBookIdSetAndGetWorkCorrectly()
+        {
+            _book.BookId = 10;
+            Assert.That(_book.BookId, Is.EqualTo(10));
+        }
+
+        [Test]
+        public void TestBookPriceSetAndGetWorkCorrectly()
+        {
+            _book.Price = 25.99m;
+            Assert.That(_book.Price, Is.EqualTo(25.99m));
+        }
+
+        [Test]
+        public void TestBookReleaseYearSetAndGetWorkCorrectly()
+        {
+            _book.ReleaseYear = 2020;
+            Assert.That(_book.ReleaseYear, Is.EqualTo(2020));
+        }
+
+        [Test]
+        public void TestBookNamePropertyCanBeSet()
+        {
+            _book.BookName = "Test Book";
+            Assert.That(_book.BookName, Is.EqualTo("Test Book"));
+        }
+
+        [Test]
+        public void TestBookGenrePropertyCanBeSet()
+        {
+            _book.Genre = "Science Fiction";
+            Assert.That(_book.Genre, Is.EqualTo("Science Fiction"));
+        }
+
+        [Test]
+        public void TestBookAuthorsCollectionIsInitialized()
+        {
+            Assert.That(_book.Authors, Is.Not.Null);
+            Assert.That(_book.Authors, Is.InstanceOf<ICollection<Author>>());
+        }
+
+        [Test]
+        public void TestBookOrdersCollectionIsInitialized()
+        {
+            Assert.That(_book.Orders, Is.Not.Null);
+            Assert.That(_book.Orders, Is.InstanceOf<ICollection<Order>>());
+        }
+
+        [Test]
+        public void TestBookPriceZeroIsValid()
+        {
+            Assert.DoesNotThrow(() => _book.Price = 0);
+        }
+
+        [Test]
+        public void TestBookReleaseYearCanBeNull()
+        {
+            Assert.DoesNotThrow(() => _book.ReleaseYear = null);
+        }
+
+        [Test]
+        public void TestBookReleaseYearEqualsTo2026IsValid()
+        {
+            Assert.DoesNotThrow(() => _book.ReleaseYear = 2026);
+        }
+
         [TearDown]
         public void Cleanup()
         {
