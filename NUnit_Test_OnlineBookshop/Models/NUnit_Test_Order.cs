@@ -13,25 +13,32 @@ namespace NUnit_Test_OnlineBookshop.Models
     public class NUnit_Test_Order
     {
 
-        private Order order;
+        private Order _order;
         
         [SetUp]
         public void Setup()
         {
-            order = new Order();
+            _order = new Order();
         }
     
     
         [Test]
-        public void TestOrderIdIsNotLessThanOrEqualToZero()
+        public void TestClassOrderIdIsNotLessThanOrEqualToZero()
         {
-            Assert.Throws<ArgumentException>(() => order.OrderId = -1);
+            Assert.Throws<ArgumentException>(() => _order.OrderId = -1);
+        }
+
+        [Test]
+
+        public void TestClassOrdergreaterThanZero()
+        {
+            Assert.DoesNotThrow(() => _order.OrderId = 1);
         }
 
         [TearDown]
         public void TearDown()
         {
-            order = null;
+            _order = null;
         }
     }
 }
