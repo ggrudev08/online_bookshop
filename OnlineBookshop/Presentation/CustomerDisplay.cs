@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Presentation
 {
-    internal class CustomerDisplay
+    public class CustomerDisplay
     {
 
         int closeOperationId = 6;

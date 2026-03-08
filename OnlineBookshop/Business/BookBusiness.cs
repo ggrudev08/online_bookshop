@@ -21,6 +21,13 @@ namespace OnlineBookshop.Business
     
         public Book Get(int id)
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            
+=======
+>>>>>>> 7a83446655ab0336309df64f7b063b5e47b630d4
+>>>>>>> 8fd7a55df35930411cf438eeef377f08c382ab19
             using (bookContext = new OnlineBookshopContext())
             {
                 var item = bookContext.Books.Find(id);
