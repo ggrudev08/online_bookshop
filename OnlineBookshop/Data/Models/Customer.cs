@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 
 namespace OnlineBookshop.Data.Models;
-
+/// <summary>
+/// This is class which realizes object Customer 
+/// </summary>
 public partial class Customer
 {
     private int _customerId;
     private string _firstName;
     private string _lastName;
+
     public int CustomerId 
     {
         get { return _customerId; }

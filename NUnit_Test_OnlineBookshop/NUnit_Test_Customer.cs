@@ -5,27 +5,33 @@ namespace NUnit_Test_OnlineBookshop
     [TestFixture]
     public class NUnit_Test_Customer
     {
+        private Customer _customer;
         [SetUp]
         public void Setup()
         {
+            _customer = new Customer();
         }
 
         [Test]
         public void TestClassCustomerCannotBeLessThanOrEqualToZero()
         {
-            Customer customer = new Customer();
-            Assert.Throws<ArgumentException>(() => customer.CustomerId = -1);
+            Assert.Throws<ArgumentException>(() => _customer.CustomerId = -1);
         }
 
         [Test]
         public void TestClassCustomerGreaterThanZero()
         {
-            Customer customer = new Customer();
-            Assert.DoesNotThrow(() => customer.CustomerId = 1);
+            Assert.DoesNotThrow(() => _customer.CustomerId = 1);
         }
         public void TestCustomer()
         {
             Assert.Pass();
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
+            _customer = null;
         }
     }
 }
