@@ -21,13 +21,16 @@ namespace OnlineBookshop.Business
     
         public Book Get(int id)
         {
-            return bookContext.Books.Find(id);
+            var item = bookContext.Books.Find(id);
+            if (item == null) throw new ArgumentException("Book id is null");
+            else return item;
         }
     
         public void Add(Book book)
         {
             using(bookContext = new OnlineBookshopContext())
             {
+              
                bookContext.Books.Add(book);
                bookContext.SaveChanges();
             }
@@ -38,11 +41,11 @@ namespace OnlineBookshop.Business
             using (bookContext = new OnlineBookshopContext())
             {
                 var item = bookContext.Books.Find(book.BookId);
-                if(item != null)
-                {
+                if(item == null) throw new ArgumentException("Book id is null");
+                
                     bookContext.Entry(item).CurrentValues.SetValues(book);
-                    bookContext.SaveChanges();
-                }
+                    bookContext.SaveChanges(); 
+
             }
         }
         public void Delete(int id)
@@ -50,11 +53,11 @@ namespace OnlineBookshop.Business
             using (bookContext = new OnlineBookshopContext())
             {
                 var item = bookContext.Books.Find(id);
-                if (item != null)
-                {
+                if (item == null) throw new ArgumentException("Book id is null");
+
                     bookContext.Books.Remove(item);
                     bookContext.SaveChanges();
-                }
+                
             }
         }
 
