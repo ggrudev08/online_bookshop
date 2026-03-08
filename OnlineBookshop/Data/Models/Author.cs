@@ -14,8 +14,6 @@ public partial class Author
     public int AuthorId 
     {
         get => _author;
-
-
         set
         {
             if (value <= 0)
