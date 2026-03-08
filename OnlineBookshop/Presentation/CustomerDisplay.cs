@@ -38,6 +38,7 @@ namespace OnlineBookshop.Presentation
             do
             {
                 ShowMenu();
+                Console.WriteLine("Enter operation ID: ");
                 operation = int.Parse(Console.ReadLine());
                 switch (operation)
                 {
@@ -124,7 +125,7 @@ namespace OnlineBookshop.Presentation
             var customer = customerBusiness.GetAll();
             foreach (var item in customer)
             {
-                Console.WriteLine($"ID: {item.CustomerId} | Name: {item.FirstName} {" "} {item.LastName}");
+                Console.WriteLine($"ID: {item.CustomerId} | Name: {item.FirstName} {item.LastName}");
             }
         }
 

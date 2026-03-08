@@ -1,6 +1,6 @@
 using OnlineBookshop.Data.Models;
 
-namespace NUnit_Test_OnlineBookshop
+namespace NUnit_Test_OnlineBookshop.Models
 {
     [TestFixture]
     public class NUnit_Test_Customer

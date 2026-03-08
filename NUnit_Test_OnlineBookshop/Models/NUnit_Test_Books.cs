@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OnlineBookshop.Data.Models;
 
-namespace NUnit_Test_OnlineBookshop
+namespace NUnit_Test_OnlineBookshop.Models
 {
     [TestFixture]
     public class NUnit_Test_Books
