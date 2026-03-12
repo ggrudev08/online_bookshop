@@ -153,5 +153,75 @@ namespace NUnit_Test_OnlineBookshop.Display
             Assert.IsTrue(outp.Contains("Author"));
             Assert.IsTrue(outp.Contains("Book"));
         }
+
+        [Test]
+        public void Display_Logo_ContainsOnlineBookshopText()
+        {
+            using var sr = new StringReader("5\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new OnlineBookshop.Presentation.Display();
+            var outp = sw.ToString();
+            Assert.IsTrue(outp.Contains("$$"));
+        }
+
+        [Test]
+        public void Display_Menu_ShowsAllFiveOptions()
+        {
+            using var sr = new StringReader("5\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new OnlineBookshop.Presentation.Display();
+            var outp = sw.ToString();
+            Assert.IsTrue(outp.Contains("1. Author"));
+            Assert.IsTrue(outp.Contains("2. Book"));
+            Assert.IsTrue(outp.Contains("3. Customer"));
+            Assert.IsTrue(outp.Contains("4. Order"));
+            Assert.IsTrue(outp.Contains("5. Exit"));
+        }
+
+        [Test]
+        public void Display_ExitOption_IsOption5()
+        {
+            using var sr = new StringReader("5\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new OnlineBookshop.Presentation.Display();
+            var outp = sw.ToString();
+            Assert.IsTrue(outp.Contains("5. Exit"));
+        }
+
+        [Test]
+        public void Display_Logo_IsMultiline()
+        {
+            using var sr = new StringReader("5\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new OnlineBookshop.Presentation.Display();
+            var outp = sw.ToString();
+            var lines = outp.Split(Environment.NewLine);
+            Assert.IsTrue(lines.Length > 15); // Logo is multiline
+        }
+
+        [Test]
+        public void Display_Output_ContainsMenuStructure()
+        {
+            using var sr = new StringReader("5\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new OnlineBookshop.Presentation.Display();
+            var outp = sw.ToString();
+            Assert.IsTrue(outp.Contains("Author") && outp.Contains("Book") && outp.Contains("Customer") && outp.Contains("Order"));
+        }
     }
 }

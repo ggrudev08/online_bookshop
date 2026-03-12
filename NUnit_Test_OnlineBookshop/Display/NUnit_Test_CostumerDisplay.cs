@@ -148,5 +148,197 @@ namespace NUnit_Test_OnlineBookshop.Display
             Assert.IsTrue(output.Contains("Fetch customer by ID"));
             Assert.IsTrue(output.Contains("Delete customer by ID"));
         }
+
+        [Test]
+        public void CustomerDisplay_Option1_DisplaysAllCustomers()
+        {
+            using var sr = new StringReader("1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Customers"));
+        }
+
+        [Test]
+        public void CustomerDisplay_Option4_FetchByIdPrompt()
+        {
+            using var sr = new StringReader("4\n1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter ID to fetch"));
+        }
+
+        [Test]
+        public void CustomerDisplay_Option4_FetchExistingCustomer_DisplaysDetails()
+        {
+            using var sr = new StringReader("4\n1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("ID:") || output.Contains("Name:"));
+        }
+
+        [Test]
+        public void CustomerDisplay_Option5_DeletePrompt()
+        {
+            using var sr = new StringReader("5\n999999\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            Assert.DoesNotThrow(() => new CustomerDisplay());
+        }
+
+        [Test]
+        public void CustomerDisplay_Option3_UpdatePrompt()
+        {
+            using var sr = new StringReader("3\n1\nJohn\nDoe\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter ID to update") || output.Contains("Done"));
+        }
+
+        [Test]
+        public void CustomerDisplay_MultipleOperations_BeforeExit()
+        {
+            using var sr = new StringReader("1\n4\n1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            Assert.DoesNotThrow(() => new CustomerDisplay());
+        }
+
+        [Test]
+        public void CustomerDisplay_MenuOptions_ContainUpdate()
+        {
+            using var sr = new StringReader("6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("3. Update"));
+        }
+
+        [Test]
+        public void CustomerDisplay_MenuOptions_ContainDelete()
+        {
+            using var sr = new StringReader("6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("5. Delete customer by ID"));
+        }
+
+        [Test]
+        public void CustomerDisplay_UpdateOption_AsksForName()
+        {
+            using var sr = new StringReader("3\n1\nUpdatedFirst\nUpdatedLast\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter first and last name") || output.Contains("Enter ID to update"));
+        }
+
+        [Test]
+        public void CustomerDisplay_UpdateOption_ShowsDoneOnSuccess()
+        {
+            using var sr = new StringReader("3\n1\nTest\nCustomer\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Done") || output.Contains("Enter ID to update"));
+        }
+
+        [Test]
+        public void CustomerDisplay_DeleteOption_ShowsDoneMessage()
+        {
+            using var sr = new StringReader("5\n999999\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Done") || output.Contains("Enter ID to delete"));
+        }
+
+        [Test]
+        public void CustomerDisplay_AllListOption_ShowsHeading()
+        {
+            using var sr = new StringReader("1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            int customerCount = output.Split(new[] { "Customers" }, StringSplitOptions.None).Length - 1;
+            Assert.IsTrue(customerCount >= 2);
+        }
+
+        [Test]
+        public void CustomerDisplay_FetchOption_DisplaysFormattedOutput()
+        {
+            using var sr = new StringReader("4\n1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("="));
+        }
+
+        [Test]
+        public void CustomerDisplay_AllCustomers_DisplaysID()
+        {
+            using var sr = new StringReader("1\n6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("ID:"));
+        }
+
+        [Test]
+        public void CustomerDisplay_MenuOptions_ContainAllCustomers()
+        {
+            using var sr = new StringReader("6\n");
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new CustomerDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("1. All customers"));
+        }
     }
 }

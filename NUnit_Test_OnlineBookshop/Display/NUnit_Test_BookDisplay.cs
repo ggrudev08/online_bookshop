@@ -166,5 +166,160 @@ namespace NUnit_Test_OnlineBookshop.Display
             // Basic formatting checks
             Assert.IsTrue(output.Split(Environment.NewLine).Length > 3);
         }
+
+        [Test]
+        public void BookDisplay_Option1_DisplaysAllBooks()
+        {
+            var input = "1\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Books"));
+        }
+
+        [Test]
+        public void BookDisplay_Option4_FetchByIdPrompt()
+        {
+            var input = "4\n1\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter ID to fetch"));
+        }
+
+        [Test]
+        public void BookDisplay_Option4_FetchExistingBook_DisplaysDetails()
+        {
+            var input = "4\n1\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("ID:") || output.Contains("Name:") || output.Contains("Genre:"));
+        }
+
+
+        [Test]
+        public void BookDisplay_Option3_UpdatePrompt()
+        {
+            var input = "3\n1\nUpdated Book\nFiction\n29.99\n2024\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter ID to update") || output.Contains("Done"));
+        }
+
+        [Test]
+        public void BookDisplay_MultipleOperations_BeforeExit()
+        {
+            var input = "1\n4\n1\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            Assert.DoesNotThrow(() => new BookDisplay());
+        }
+
+        [Test]
+        public void BookDisplay_MenuOptions_ContainUpdate()
+        {
+            var input = "6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("3. Update"));
+        }
+
+        [Test]
+        public void BookDisplay_MenuOptions_ContainDelete()
+        {
+            var input = "6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("5. Delete book by ID"));
+        }
+
+        [Test]
+        public void BookDisplay_UpdateOption_AsksForBookName()
+        {
+            var input = "3\n1\nTest Book\nScience\n25.00\n2023\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter new name"));
+        }
+
+        [Test]
+        public void BookDisplay_UpdateOption_AsksForGenre()
+        {
+            var input = "3\n1\nTest Book\nScience\n25.00\n2023\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter new genre"));
+        }
+
+        [Test]
+        public void BookDisplay_UpdateOption_AsksForPrice()
+        {
+            var input = "3\n1\nTest Book\nScience\n25.00\n2023\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter new price"));
+        }
+
+        [Test]
+        public void BookDisplay_UpdateOption_AsksForReleaseYear()
+        {
+            var input = "3\n1\nTest Book\nScience\n25.00\n2023\n6\n";
+            using var sr = new StringReader(input);
+            using var sw = new StringWriter();
+            Console.SetIn(sr);
+            Console.SetOut(sw);
+
+            new BookDisplay();
+            var output = sw.ToString();
+            Assert.IsTrue(output.Contains("Enter new release year"));
+        }
+
+       
     }
 }
