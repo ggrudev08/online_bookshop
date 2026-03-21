@@ -3,6 +3,9 @@ using OnlineBookshop.Data.Models;
 namespace NUnit_Test_OnlineBookshop.Models
 {
     [TestFixture]
+    /// <summary>
+    /// Tests for the Customer model class.
+    /// </summary>
     public class NUnit_Test_Customer
     {
         private Customer _customer;

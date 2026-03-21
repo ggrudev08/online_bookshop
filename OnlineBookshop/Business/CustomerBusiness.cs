@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Business
 {
+    /// <summary>
+    /// Handles business logic operations for Customers.
+    /// </summary>
     public class CustomerBusiness
     {
         private OnlineBookshopContext customerContext;

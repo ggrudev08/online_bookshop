@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OnlineBookshop.Data.Models;
 
+/// <summary>
+/// Represents the Entity Framework database context for the Online Bookshop.
+/// </summary>
 public partial class OnlineBookshopContext : DbContext
 {
     public OnlineBookshopContext()

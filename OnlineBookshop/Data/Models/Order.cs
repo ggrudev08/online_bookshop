@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace OnlineBookshop.Data.Models;
 
+/// <summary>
+/// Represents an Order entity in the database.
+/// </summary>
 public partial class Order
 {
     private int order_id;

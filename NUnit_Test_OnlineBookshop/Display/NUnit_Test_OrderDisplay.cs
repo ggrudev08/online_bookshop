@@ -5,6 +5,9 @@ using OnlineBookshop.Presentation;
 
 namespace NUnit_Test_OnlineBookshop.Display
 {
+    /// <summary>
+    /// Tests for the OrderDisplay class.
+    /// </summary>
     [TestFixture]
     public class NUnit_Test_OrderDisplay
     {

@@ -8,6 +8,9 @@ using OnlineBookshop.Data.Models;
 
 namespace NUnit_Test_OnlineBookshop.Business
 {
+    /// <summary>
+    /// Tests for the AuthorBusiness class.
+    /// </summary>
     [TestFixture]
     public class NUnit_Test_AuthorBusiness
     {

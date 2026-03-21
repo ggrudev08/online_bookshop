@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Presentation
 {
+    /// <summary>
+    /// Handles the user interface display and interactions for Books.
+    /// </summary>
     internal class BookDisplay
     {
 

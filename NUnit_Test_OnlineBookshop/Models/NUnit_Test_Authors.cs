@@ -2,6 +2,9 @@ using OnlineBookshop.Data.Models;
 
 namespace NUnit_Test_OnlineBookshop.Models
 {
+    /// <summary>
+    /// Tests for the Author model class.
+    /// </summary>
     [TestFixture]
     public class NUnit_Test_Authors
     {

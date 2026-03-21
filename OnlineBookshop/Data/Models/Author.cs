@@ -4,6 +4,9 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace OnlineBookshop.Data.Models;
 
+/// <summary>
+/// Represents an Author entity in the database.
+/// </summary>
 public partial class Author
 {
     private int _author;

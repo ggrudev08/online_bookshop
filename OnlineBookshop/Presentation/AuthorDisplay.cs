@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Presentation
 {
+    /// <summary>
+    /// Handles the user interface display and interactions for Authors.
+    /// </summary>
     public class AuthorDisplay
     { private AuthorBusiness _authorBusiness;
 
