@@ -92,8 +92,9 @@ namespace OnlineBookshop.Presentation
             Customer customer = customerBusiness.Get(id);
             if (customer != null)
             {
-                Console.WriteLine("Enter first and last name: ");
+                Console.WriteLine("Enter first name: ");
                 customer.FirstName = Console.ReadLine();
+                Console.WriteLine("Enter last name: ");
                 customer.LastName = Console.ReadLine();
 
                 customerBusiness.Update(customer);
@@ -108,10 +109,11 @@ namespace OnlineBookshop.Presentation
         private void Add()
         {
             Customer customer = new Customer();
-            Console.WriteLine("Enter ID: ");
-            customer.CustomerId = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter name: ");
+           // Console.WriteLine("Enter ID: ");
+           // customer.CustomerId = int.Parse(Console.ReadLine());
+           Console.WriteLine("Enter first name: ");
             customer.FirstName = Console.ReadLine();
+            Console.WriteLine("Enter last name: ");
             customer.LastName = Console.ReadLine();
             customerBusiness.Add(customer);
             Console.WriteLine("Done.");
