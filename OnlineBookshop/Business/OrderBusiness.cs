@@ -7,6 +7,9 @@ using OnlineBookshop.Data.Models;
 
 namespace OnlineBookshop.Business
 {
+    /// <summary>
+    /// Handles business logic operations for Orders.
+    /// </summary>
     public class OrderBusiness
     {
         private OnlineBookshopContext orderContext;

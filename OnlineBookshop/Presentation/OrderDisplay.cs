@@ -9,6 +9,9 @@ using OnlineBookshop.Data.Models;
 
 namespace OnlineBookshop.Presentation
 {
+    /// <summary>
+    /// Handles the user interface display and interactions for Orders.
+    /// </summary>
     public class OrderDisplay
     {
     

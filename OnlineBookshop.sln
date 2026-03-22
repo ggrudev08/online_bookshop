@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBookshop", "OnlineBoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_Test_OnlineBookshop", "NUnit_Test_OnlineBookshop\NUnit_Test_OnlineBookshop.csproj", "{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsOnlineBookshop", "WinFormsOnlineBookshop\WinFormsOnlineBookshop.csproj", "{4D82BEBF-49B2-48DB-AB40-44B2420C0203}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC92F63F-BF6A-40D1-BE95-2358D9D37D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D82BEBF-49B2-48DB-AB40-44B2420C0203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D82BEBF-49B2-48DB-AB40-44B2420C0203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D82BEBF-49B2-48DB-AB40-44B2420C0203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D82BEBF-49B2-48DB-AB40-44B2420C0203}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

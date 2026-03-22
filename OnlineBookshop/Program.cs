@@ -5,6 +5,9 @@ using OnlineBookshop.Presentation;
 
 namespace OnlineBookshop
 {
+    /// <summary>
+    /// The entry point of the Online Bookshop application.
+    /// </summary>
     internal class Program
     {
         static void Main(string[] args)

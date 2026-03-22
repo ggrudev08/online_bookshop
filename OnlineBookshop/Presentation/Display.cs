@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OnlineBookshop.Presentation
 {
+    /// <summary>
+    /// Represents the main menu display for the Online Bookshop application.
+    /// </summary>
     internal class Display
     {
         public Display()

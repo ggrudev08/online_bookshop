@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace OnlineBookshop.Data.Models;
 
+/// <summary>
+/// Represents a Book entity in the database.
+/// </summary>
 public partial class Book
 {
 
