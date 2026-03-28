@@ -58,7 +58,7 @@ namespace WinFormsOnlineBookshop
                     DeleteBook();
                     BookShow();
                     break;
-                case 3: 
+                case 3:
                     DeleteCustomer();
                     CustomerShow();
                     break;
@@ -146,7 +146,7 @@ namespace WinFormsOnlineBookshop
             txtGenre.Hide();
             label9.Hide();
             txtPrice.Hide();
-            
+
             //Console.WriteLine("1. All authors");
             //Console.WriteLine("2. Add new author");
             //Console.WriteLine("3. Update");
@@ -333,7 +333,7 @@ namespace WinFormsOnlineBookshop
             txtGenre.Hide();
             label9.Hide();
             txtPrice.Hide();
-            
+
             comboBox1.Items.Clear();
             comboBox1.Items.Add("List all entries.");
             comboBox1.Items.Add("Fetch entry by ID");
@@ -345,7 +345,7 @@ namespace WinFormsOnlineBookshop
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
-            
+
             Customer customer = new Customer();
             customer.FirstName = firstName;
             customer.LastName = lastName;
@@ -354,7 +354,7 @@ namespace WinFormsOnlineBookshop
         }
         private void DeleteCustomer()
         {
-            int id =int.Parse(txtId.Text);
+            int id = int.Parse(txtId.Text);
             customerBusiness.Delete(id);
         }
         private void UpdateCustomer()
@@ -362,7 +362,7 @@ namespace WinFormsOnlineBookshop
             int id = int.Parse(txtId.Text);
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
-            
+
             var customer = customerBusiness.Get(id);
             customer.FirstName = firstName;
             customer.LastName = lastName;
@@ -379,16 +379,16 @@ namespace WinFormsOnlineBookshop
 
         public void CustomerShow()
         {
-            
+
             UpdateGridCustomer();
             ClearTextBoxes();
-        
+
         }
 
         private void FetchCustomer()
         {
             int id = int.Parse(txtId.Text);
-            
+
             dataGridView1.DataSource = new List<Customer> { customerBusiness.Get(id) };
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -398,8 +398,8 @@ namespace WinFormsOnlineBookshop
 
         // ----------------- Customer Logic -----------------
 
-        
-        
+
+
         // ----------------- Order Logic -----------------//Недовършеноа
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -558,6 +558,31 @@ namespace WinFormsOnlineBookshop
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBirthYear_TextChanged(object sender, EventArgs e)
         {
 
         }
