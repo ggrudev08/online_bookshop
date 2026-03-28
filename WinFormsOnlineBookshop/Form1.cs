@@ -30,9 +30,17 @@ namespace WinFormsOnlineBookshop
                     InsertAuthor();
                     AuthorShow();
                     break;
+                case 2:
+                    InsertBook();
+                    BookShow();
+                    break;
                 case 3:
                     InsertCustomer();
                     CustomerShow();
+                    break;
+                case 4:
+                    InsertOrder();
+                    OrderShow();
                     break;
 
             }
@@ -46,9 +54,17 @@ namespace WinFormsOnlineBookshop
                     DeleteAuthor();
                     AuthorShow();
                     break;
+                case 2:
+                    DeleteBook();
+                    BookShow();
+                    break;
                 case 3: 
                     DeleteCustomer();
                     CustomerShow();
+                    break;
+                case 4:
+                    DeleteOrder();
+                    OrderShow();
                     break;
             }
         }
@@ -61,9 +77,17 @@ namespace WinFormsOnlineBookshop
                     UpdateAuthor();
                     AuthorShow();
                     break;
+                case 2:
+                    UpdateBook();
+                    BookShow();
+                    break;
                 case 3:
                     UpdateCustomer();
                     CustomerShow();
+                    break;
+                case 4:
+                    UpdateOrder();
+                    OrderShow();
                     break;
             }
         }
@@ -81,12 +105,18 @@ namespace WinFormsOnlineBookshop
             label4.Visible = true;
             label5.Visible = true;
             label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
 
             txtBirthYear.Visible = true;
             txtFirstName.Visible = true;
             txtLastName.Visible = true;
             txtReleaseYear.Visible = true;
             txtId.Visible = true;
+            txtTitle.Visible = true;
+            txtGenre.Visible = true;
+            txtPrice.Visible = true;
         }
 
         private void ClearTextBoxes()
@@ -96,6 +126,9 @@ namespace WinFormsOnlineBookshop
             txtFirstName.Text = "";
             txtReleaseYear.Text = "";
             txtId.Text = "";
+            txtTitle.Text = "";
+            txtGenre.Text = "";
+            txtPrice.Text = "";
         }
 
         // ----------------- Author Logic -----------------
@@ -107,7 +140,13 @@ namespace WinFormsOnlineBookshop
 
             label4.Hide();
             txtReleaseYear.Hide();
-
+            label7.Hide();
+            txtTitle.Hide();
+            label8.Hide();
+            txtGenre.Hide();
+            label9.Hide();
+            txtPrice.Hide();
+            
             //Console.WriteLine("1. All authors");
             //Console.WriteLine("2. Add new author");
             //Console.WriteLine("3. Update");
@@ -193,9 +232,16 @@ namespace WinFormsOnlineBookshop
         {
             flag = 2;
             ClearTextBoxes();
+            ResetVisibility();
 
             label1.Hide();
             txtBirthYear.Hide();
+            label2.Hide();
+            txtFirstName.Hide();
+            label3.Hide();
+            txtLastName.Hide();
+
+            label9.Text = "Price";
 
             comboBox1.Items.Clear();
             comboBox1.Items.Add("List all entries.");
@@ -208,6 +254,44 @@ namespace WinFormsOnlineBookshop
             dataGridView1.DataSource = bookBusiness.GetAll();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void UpdateBook()
+        {
+            int id = int.Parse(txtId.Text);
+            string title = txtTitle.Text;
+            string genre = txtGenre.Text;
+            decimal price = decimal.Parse(txtPrice.Text);
+            int releaseYear = int.Parse(txtReleaseYear.Text);
+
+            var book = bookBusiness.Get(id);
+            book.BookName = title;
+            book.Genre = genre;
+            book.Price = price;
+            book.ReleaseYear = releaseYear;
+
+            bookBusiness.Update(book);
+        }
+        private void DeleteBook()
+        {
+            int id = int.Parse(txtId.Text);
+            bookBusiness.Delete(id);
+        }
+
+        private void InsertBook()
+        {
+            string title = txtTitle.Text;
+            string genre = txtGenre.Text;
+            decimal price = decimal.Parse(txtPrice.Text);
+            int releaseYear = int.Parse(txtReleaseYear.Text);
+
+            Book book = new Book();
+            book.BookName = title;
+            book.Genre = genre;
+            book.Price = price;
+            book.ReleaseYear = releaseYear;
+
+            bookBusiness.Add(book);
         }
 
 
@@ -243,6 +327,12 @@ namespace WinFormsOnlineBookshop
             txtReleaseYear.Hide();
             label1.Hide();
             txtBirthYear.Hide();
+            label7.Hide();
+            txtTitle.Hide();
+            label8.Hide();
+            txtGenre.Hide();
+            label9.Hide();
+            txtPrice.Hide();
             
             comboBox1.Items.Clear();
             comboBox1.Items.Add("List all entries.");
@@ -326,22 +416,67 @@ namespace WinFormsOnlineBookshop
             txtLastName.Hide();
             label4.Hide();
             txtReleaseYear.Hide();
+            label7.Hide();
+            txtTitle.Hide();
+            label8.Hide();
+            txtGenre.Hide();
+
+
+            label9.Text = "Customer ID";
+
 
             comboBox1.Items.Clear();
             comboBox1.Items.Add("List all entries.");
             comboBox1.Items.Add("Fetch entry by ID");
             comboBox1.Items.Add("Exit");
         }
-      
 
+        private void UpdateOrder()
+        {
+            int customerID = int.Parse(txtPrice.Text);
+            int id = int.Parse(txtId.Text);
 
-        public void OrderShow()
+            var order = orderBusiness.Get(id);
+            order.CustomerId = customerID;
+
+            orderBusiness.Update(order);
+        }
+
+        private void DeleteOrder()
+        {
+            int id = int.Parse(txtId.Text);
+            orderBusiness.Delete(id);
+        }
+
+        private void InsertOrder()
+        {
+            int customerID = int.Parse(txtPrice.Text);
+
+            Order order = new Order();
+            order.CustomerId = customerID;
+
+            orderBusiness.Add(order);
+        }
+
+        private void FetchOrder()
+        {
+            int id = int.Parse(txtId.Text);
+
+            dataGridView1.DataSource = new List<Order>
+                { orderBusiness.Get(id) };
+            dataGridView1.ReadOnly = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            ClearTextBoxes();
+        }
+
+        private void OrderShow()
         {
             UpdateGridOrder();
             ClearTextBoxes();
         }
 
-        public void UpdateGridOrder()
+        private void UpdateGridOrder()
         {
             dataGridView1.DataSource = orderBusiness.GetAll();
             dataGridView1.ReadOnly = true;
@@ -401,7 +536,21 @@ namespace WinFormsOnlineBookshop
             }
             else if (flag == 4)
             {
-            
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        OrderShow();
+                        break;
+                    case 1:
+                        FetchOrder();
+                        break;
+                    case 2:
+                        flag = -1;
+                        ResetVisibility();
+                        ClearTextBoxes();
+                        break;
+
+                }
 
 
             }
